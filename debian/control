@@ -1,0 +1,12 @@
+Source: ros-hydro-ueye
+Section: misc
+Priority: extra
+Maintainer: Kevin Hallenbeck <kmhallen@oakand.edu>
+Build-Depends: debhelper (>= 9.0.0), ros-hydro-camera-calibration-parsers, ros-hydro-catkin, ros-hydro-cv-bridge, ros-hydro-dynamic-reconfigure, ros-hydro-image-transport, ros-hydro-nodelet, ros-hydro-roscpp, ros-hydro-roslaunch, ros-hydro-rostest, ros-hydro-std-msgs
+Homepage: http://wiki.ros.org/ueye
+Standards-Version: 3.9.2
+
+Package: ros-hydro-ueye
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-hydro-camera-calibration-parsers, ros-hydro-cv-bridge, ros-hydro-dynamic-reconfigure, ros-hydro-image-transport, ros-hydro-nodelet, ros-hydro-roscpp, ros-hydro-std-msgs
+Description: Driver for IDS Imaging uEye cameras.
