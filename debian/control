@@ -1,0 +1,12 @@
+Source: ros-indigo-ueye
+Section: misc
+Priority: extra
+Maintainer: Kevin Hallenbeck <kmhallen@oakand.edu>
+Build-Depends: debhelper (>= 9.0.0), ros-indigo-camera-calibration-parsers, ros-indigo-catkin, ros-indigo-cv-bridge, ros-indigo-dynamic-reconfigure, ros-indigo-image-transport, ros-indigo-nodelet, ros-indigo-roscpp, ros-indigo-roslaunch, ros-indigo-rostest, ros-indigo-std-msgs
+Homepage: http://wiki.ros.org/ueye
+Standards-Version: 3.9.2
+
+Package: ros-indigo-ueye
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-indigo-camera-calibration-parsers, ros-indigo-cv-bridge, ros-indigo-dynamic-reconfigure, ros-indigo-image-transport, ros-indigo-nodelet, ros-indigo-roscpp, ros-indigo-std-msgs
+Description: Driver for IDS Imaging uEye cameras.
