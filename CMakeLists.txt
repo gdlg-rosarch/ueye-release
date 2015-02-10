@@ -44,16 +44,19 @@ check_include_file_cxx("ueye.h" HAVE_UEYE_H)
 if (NOT HAVE_UEYE_H)
   include(TargetArch.cmake)
   target_architecture(TARGET_ARCH)
-  message("-- uEye SDK not found. Using downloaded files for '${TARGET_ARCH}' architecture.")
+  message("-- uEye SDK not found. Using downloaded files for '${TARGET_ARCH}' architecture. (~2MB)")
+  message("-- This method is only intended for the buildfarm, and will fail to communicate if the official uEye SDK is not installed.")
+  message("-- The official uEye SDK can be found at https://en.ids-imaging.com/download-ueye.html (~70MB)")
 
   if (TARGET_ARCH STREQUAL "amd64")
+    message("-- The official uEye SDK for amd64: https://en.ids-imaging.com/download-ueye.html?file=tl_files/downloads/uEye_SDK/driver/uEye_Linux_4.60_64_Bit.zip (~71MB)")
     file(DOWNLOAD 
-      #https://bitbucket.org/kmhallen/ueye/downloads/uEye_SDK_4_40_amd64.tar.gz
-      http://download.ros.org/data/ueye/uEye_SDK_4_40_amd64.tar.gz
+      https://bitbucket.org/kmhallen/ueye/downloads/uEye_SDK_4_60_amd64.tar.gz
+      #http://download.ros.org/data/ueye/uEye_SDK_4_60_amd64.tar.gz
       ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/3rdparty/uEye_SDK_amd64.tar.gz
       SHOW_PROGRESS
       INACTIVITY_TIMEOUT 60
-      EXPECTED_MD5 5290609fb3906a3355a6350dd36b2c76
+      EXPECTED_MD5 e56ede9549b84e9093a1d3b4b9ff9344
       TLS_VERIFY on)
     execute_process(
       COMMAND ${CMAKE_COMMAND} -E tar xzf ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/3rdparty/uEye_SDK_amd64.tar.gz
@@ -62,13 +65,14 @@ if (NOT HAVE_UEYE_H)
     include_directories(${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/3rdparty/amd64)
     link_directories(${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/3rdparty/amd64)
   elseif (TARGET_ARCH STREQUAL "i386")
+    message("-- The official uEye SDK for i386: https://en.ids-imaging.com/download-ueye.html?file=tl_files/downloads/uEye_SDK/driver/uEye_Linux_4.60_32_Bit.zip (~71MB)")
     file(DOWNLOAD 
-      #https://bitbucket.org/kmhallen/ueye/downloads/uEye_SDK_4_40_i386.tar.gz
-      http://download.ros.org/data/ueye/uEye_SDK_4_40_i386.tar.gz
+      https://bitbucket.org/kmhallen/ueye/downloads/uEye_SDK_4_60_i386.tar.gz
+      #http://download.ros.org/data/ueye/uEye_SDK_4_60_i386.tar.gz
       ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/3rdparty/uEye_SDK_i386.tar.gz
       SHOW_PROGRESS
       INACTIVITY_TIMEOUT 60
-      EXPECTED_MD5 d9803f2db1604f5a0993c4b62d395a31
+      EXPECTED_MD5 20db4268dd3c0416d289067277fffef7
       TLS_VERIFY on)
     execute_process(
       COMMAND ${CMAKE_COMMAND} -E tar xzf ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/3rdparty/uEye_SDK_i386.tar.gz
@@ -77,21 +81,23 @@ if (NOT HAVE_UEYE_H)
     include_directories(${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/3rdparty/i386)
     link_directories(${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/3rdparty/i386)
   elseif (TARGET_ARCH STREQUAL "arm")
+    message("-- The official uEye SDK for armhf: https://en.ids-imaging.com/linux-embedded-downloads.html?file=tl_files/downloads/LinuxEmbedded/uEyeSDK-4.60.00-ARM_LINUX_IDS_GNUEABI_HF.tgz (~20MB)")
+    message("-- Assuming 'armhf' architecture. The 'armel' build files are available. However, the buildfarm does not build 'armel', and detection at configure time is difficult.")
     file(DOWNLOAD 
-      https://bitbucket.org/kmhallen/ueye/downloads/uEye_SDK_4_30_arm.tar.gz
-      ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/3rdparty/uEye_SDK_arm.tar.gz
+      https://bitbucket.org/kmhallen/ueye/downloads/uEye_SDK_4_60_armhf.tar.gz
+      ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/3rdparty/uEye_SDK_armhf.tar.gz
       SHOW_PROGRESS
       INACTIVITY_TIMEOUT 60
-      EXPECTED_MD5 0297e76450084ab21ff9db1a3070f323
+      EXPECTED_MD5 d8e6cbe59bb19b97bd3d9922ff5ac576
       TLS_VERIFY on)
     execute_process(
-      COMMAND ${CMAKE_COMMAND} -E tar xzf ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/3rdparty/uEye_SDK_arm.tar.gz
+      COMMAND ${CMAKE_COMMAND} -E tar xzf ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/3rdparty/uEye_SDK_armhf.tar.gz
       WORKING_DIRECTORY ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/3rdparty
     )
-    include_directories(${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/3rdparty/arm)
-    link_directories(${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/3rdparty/arm)
+    include_directories(${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/3rdparty/armhf)
+    link_directories(${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/3rdparty/armhf)
   else ()
-    message("-- Warning: Downloads for '${TARGET_ARCH}' architecture not found.")
+    message("-- Warning: Download for '${TARGET_ARCH}' architecture not found.")
   endif ()
 endif (NOT HAVE_UEYE_H)
 
