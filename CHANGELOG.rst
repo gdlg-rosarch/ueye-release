@@ -2,6 +2,11 @@
 Changelog for package ueye
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.0.5 (2015-02-09)
+------------------
+* Updated amd64, i386, and armhf for uEye SDK 4.60
+* Contributors: Kevin Hallenbeck
+
 0.0.4 (2015-01-28)
 ------------------
 * Allow discrete-only pixelclocks cameras
