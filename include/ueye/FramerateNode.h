@@ -1,7 +1,7 @@
 /*********************************************************************
  * Software License Agreement (BSD License)
  *
- *  Copyright (c) 2012, Kevin Hallenbeck
+ *  Copyright (c) 2012-2015, Kevin Hallenbeck
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -37,8 +37,7 @@
 
 // ROS includes
 #include "ros/ros.h"
-#include <sensor_msgs/image_encodings.h>
-#include <cv_bridge/cv_bridge.h>
+#include <sensor_msgs/Image.h>
 
 namespace ueye
 {
@@ -55,6 +54,10 @@ private:
 
   // ROS topics
   ros::Subscriber sub_;
+
+  bool first_;
+  double rate_;
+  ros::Time stamp_old_;
 };
 
 } // namespace ueye
