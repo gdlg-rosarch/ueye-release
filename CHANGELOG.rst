@@ -2,6 +2,11 @@
 Changelog for package ueye
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.0.9 (2016-04-11)
+------------------
+* Allow zoom up to 16x
+* Contributors: Kevin Hallenbeck
+
 0.0.8 (2015-12-04)
 ------------------
 * Forgot to remove cv_bridge in package.xml
