@@ -1,3 +1,26 @@
+## ueye (indigo) - 0.0.10-0
+
+The packages in the `ueye` repository were released into the `indigo` distro by running `/usr/bin/bloom-release --rosdistro indigo --track indigo ueye` on `Tue, 12 Jul 2016 20:09:22 -0000`
+
+The `ueye` package was released.
+
+Version of package(s) in repository `ueye`:
+
+- upstream repository: https://bitbucket.org/kmhallen/ueye
+- release repository: https://github.com/kmhallen/ueye-release.git
+- rosdistro version: `0.0.9-0`
+- old version: `0.0.9-0`
+- new version: `0.0.10-0`
+
+Versions of tools used:
+
+- bloom version: `0.5.21`
+- catkin_pkg version: `0.2.10`
+- rosdep version: `0.11.5`
+- rosdistro version: `0.4.7`
+- vcstools version: `0.1.38`
+
+
 ## ueye (jade) - 0.0.9-0
 
 The packages in the `ueye` repository were released into the `jade` distro by running `/usr/bin/bloom-release ueye --track jade --rosdistro jade` on `Tue, 12 Apr 2016 04:10:46 -0000`
