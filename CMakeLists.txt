@@ -3,9 +3,9 @@ project(ueye)
 
 set(${PROJECT_NAME}_CATKIN_DEPS
   roscpp
+  roslib
   nodelet
   dynamic_reconfigure
-  std_msgs
   image_transport
   camera_calibration_parsers
 )
@@ -22,7 +22,6 @@ catkin_package(
   INCLUDE_DIRS ${${PROJECT_NAME}_INCLUDE_EXPORTS}
   LIBRARIES ueye_nodelets
   CATKIN_DEPENDS ${${PROJECT_NAME}_CATKIN_DEPS}
-  DEPENDS OpenCV
 )
 
 include_directories(
