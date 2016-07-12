@@ -1,0 +1,12 @@
+Source: ros-kinetic-ueye
+Section: misc
+Priority: extra
+Maintainer: Kevin Hallenbeck <kmhallen@oakland.edu>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-camera-calibration-parsers, ros-kinetic-catkin, ros-kinetic-dynamic-reconfigure, ros-kinetic-image-transport, ros-kinetic-nodelet, ros-kinetic-roscpp, ros-kinetic-roslaunch, ros-kinetic-roslib, ros-kinetic-rostest
+Homepage: http://wiki.ros.org/ueye
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-ueye
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-camera-calibration-parsers, ros-kinetic-dynamic-reconfigure, ros-kinetic-image-transport, ros-kinetic-nodelet, ros-kinetic-roscpp, ros-kinetic-roslib
+Description: Driver for IDS Imaging uEye cameras.
