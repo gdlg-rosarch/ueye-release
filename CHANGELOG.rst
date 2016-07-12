@@ -2,6 +2,11 @@
 Changelog for package ueye
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.0.10 (2016-07-12)
+-------------------
+* Updated dependencies
+* Contributors: Kevin Hallenbeck
+
 0.0.9 (2016-04-11)
 ------------------
 * Allow zoom up to 16x
